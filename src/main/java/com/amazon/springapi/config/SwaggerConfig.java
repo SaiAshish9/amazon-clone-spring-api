@@ -27,7 +27,7 @@ public class SwaggerConfig {
 
     private ApiInfo metaInfo() {
         ApiInfo apiInfo = new ApiInfo(
-                "Amazon Clone API", "Amazon API Clone By Sai", "1.0", "Tos", new Contact("abcd", "abcd.com", "abcd@gmail.com"),
+                "Amazon Clone API By Sai Ashish", "Spring Boot API ", "1.0", "Tos", new Contact("abcd", "abcd.com", "abcd@gmail.com"),
                 "Apache Licence",
                 "https://amazon-clone-by-sai.vercel.app/"
         );
