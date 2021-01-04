@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"http://localhost:4200","https://amazon-api-by-sai.herokuapp.com"})
+@CrossOrigin(origins = {"http://localhost:4200","https://amazon-clone-by-sai.vercel.app"})
 @RestController
 @RequestMapping("/api/home")
 public class CategoryController {
