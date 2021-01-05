@@ -1,7 +1,9 @@
 package com.amazon.springapi.config;
 
 import com.amazon.springapi.entity.home.Category;
+import com.amazon.springapi.entity.home.Discover;
 import com.amazon.springapi.repository.home.CategoryRepository;
+import com.amazon.springapi.repository.home.DiscoverRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,14 +16,15 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @EnableMongoRepositories(basePackageClasses = {
-        CategoryRepository.class
+        CategoryRepository.class,
+        DiscoverRepository.class
 })
 @Configuration
 public class MongoDBConfig {
 
     //  ApplicationRunner
     @Bean
-    CommandLineRunner commandLineRunner(CategoryRepository categoryRepository) {
+    CommandLineRunner commandLineRunner(CategoryRepository categoryRepository, DiscoverRepository discoverRepository) {
 
         return strings -> {
 //            (add(""),add(")
@@ -51,11 +54,31 @@ public class MongoDBConfig {
             categories = IntStream
                     .range(0, homeCategoryUrls.size())
                     .mapToObj(i -> {
-                        return new Category(i, titles[i], homeCategoryUrls.get(i), i == 0 || i == 1 || i == 2);
+                        return new Category(i, titles[i], homeCategoryUrls.get(i), i == 0 || i == 2 || i == 3);
                     })
                     .collect(Collectors.toList());
 
             categoryRepository.saveAll(categories);
+
+
+            String[] discoverItems = new String[]{
+                    "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Projects/HelpPage/BubbleShoveler/English/Fuji_Bubble_8Languages_en_US_updated_1x._CB445837675_.png",
+                    "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/October/BubbleShoveler/AIS_Bubble_Currency_en_US_1X._CB451228332_.jpg",
+                    "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/October/BubbleShoveler/AIS_Bubble_SecurePayment_en_US_1X._CB451228335_.jpg",
+                    "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/October/BubbleShoveler/AIS_Bubble_ImportFees_en_US_1X._CB451228332_.jpg",
+                    "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/October/BubbleShoveler/AIS_Bubble_TrackPackage_en_US_1X._CB451228335_.jpg",
+                    "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/October/BubbleShoveler/AIS_Bubble_247CS_en_US_1X._CB451228332_.jpg"
+
+            };
+
+            List discover = new ArrayList();
+            int i = 0;
+            for (String s : discoverItems) {
+                discover.add(new Discover(i++, s));
+            }
+
+            discoverRepository.saveAll(discover);
+
 
         };
     }
