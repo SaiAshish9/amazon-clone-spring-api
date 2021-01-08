@@ -19,7 +19,7 @@ public class hello {
     }
 
 
-    @GetMapping("/api/hi")
+    @GetMapping("/api/public/hi")
     public Map<String, String> getMsg() {
         HashMap msg = new HashMap();
         msg.put("msg", "hi, sai this side");

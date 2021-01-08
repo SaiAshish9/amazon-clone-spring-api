@@ -2,6 +2,7 @@ package com.amazon.springapi.config;
 
 import com.amazon.springapi.entity.home.*;
 import com.amazon.springapi.repository.home.*;
+import com.amazon.springapi.repository.user.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +18,7 @@ import java.util.stream.IntStream;
         CategoryRepository.class,
         DiscoverRepository.class,
         SellersRepository.class,
+        UserRepository.class,
         Products.class
 })
 @Configuration

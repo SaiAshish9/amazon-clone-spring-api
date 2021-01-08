@@ -11,7 +11,7 @@ import java.util.List;
 
 //@CrossOrigin(origins = {"http://localhost:4200","https://amazon-clone-by-sai.vercel.app"})
 @RestController
-@RequestMapping("/api/home")
+@RequestMapping("/api/public/home")
 public class CategoryController {
 
     @Autowired

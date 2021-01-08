@@ -1,0 +1,26 @@
+package com.amazon.springapi.entity.user;
+
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+@AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+public class User {
+
+    @Id
+    private Long id;
+
+
+    private String username;
+
+    private String password;
+
+    private String email;
+
+//    private Integer orders_count;
+
+}

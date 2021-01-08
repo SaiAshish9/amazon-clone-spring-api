@@ -13,7 +13,7 @@ import java.net.URLDecoder;
 import static java.lang.Long.decode;
 
 @RestController
-@RequestMapping("/api/home/")
+@RequestMapping("/api/public/home/")
 public class HomeController {
 
     @Autowired
