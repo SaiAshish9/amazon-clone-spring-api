@@ -6,10 +6,6 @@ import com.amazon.springapi.entity.user.User;
 import com.amazon.springapi.repository.user.UserRepository;
 import com.amazon.springapi.services.jwt.MyUserDetailsService;
 import com.amazon.springapi.utils.JwtUtil;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ExampleProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,15 +13,13 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@RequestMapping("/api")
 public class AuthController {
 
 
@@ -45,14 +39,27 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody AuthRequestBody r){
 
+        System.out.println("###########################");
+        System.out.println(r.getEmail()+"  "+r.getUsername()+"  "+r.getPassword());
+        System.out.println("###########################");
+
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String password = passwordEncoder.encode(r.getPassword());
 
-        userRepository.save(
-                new User(userRepository.count()+1,r.getUsername(),password,r.getEmail())
-        );
+        User check= userRepository.findByEmail(r.getEmail());
 
-        return ResponseEntity.ok("success");
+        if( check == null || !check.getEmail().equals(r.getEmail())){
+            userRepository.save(
+                    new User(userRepository.count()+1,r.getUsername(),password,r.getEmail())
+            );
+        }else{
+            return ResponseEntity.badRequest().body("already exists");
+        }
+
+        Map msg=new HashMap();
+        msg.put("msg","Success");
+
+        return ResponseEntity.ok(msg);
     }
 
 

@@ -48,9 +48,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().
                 authorizeRequests().
                 antMatchers("/").permitAll().
-                antMatchers("/swagger-ui.html**").permitAll().
-                antMatchers("/refresh").permitAll().
-                antMatchers("/api/public/**").permitAll().
+                antMatchers(
+                        "/api/register",
+                        "/api/get-username",
+                        "/api/authenticate",
+                        "/api/public/**",
+                        "/refresh",
+                        "/swagger-ui.html**").permitAll().
                 anyRequest().authenticated().and().
                 exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -62,8 +66,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity webSecurity) throws Exception {
         webSecurity
                 .ignoring()
-                .antMatchers(HttpMethod.POST, "/authenticate")
-                .antMatchers(HttpMethod.POST, "/register")
+                .antMatchers(HttpMethod.POST, "/api/authenticate")
+                .antMatchers(HttpMethod.POST, "/api/register")
                 .antMatchers(HttpMethod.OPTIONS, "/**")
                 .and()
                 .ignoring().antMatchers("/v2/api-docs",

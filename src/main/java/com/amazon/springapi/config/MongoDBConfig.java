@@ -288,6 +288,29 @@ public class MongoDBConfig {
                     )
             );
 
+            productsRepository.save(
+                    new Products(
+                            "Best sellers in Kindle eBooks",
+                            Arrays.asList(
+                                    "https://images-na.ssl-images-amazon.com/images/I/91SnTS%2BBWSL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/81AFDpfa9gL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/81FJvwYyqgL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/910lSbCMclL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/817tRypfAiL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/81IVbnUKbqL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/81MViNwWwRL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/81Qwr%2BRiAuL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/91cToRhgT6L.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/81FYavYdIpL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/91zZMyUZOfL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/91giQulzYFL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/91abOjluAIL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/91giQulzYFL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/81F4NU78sbL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/81Zn%2B4DZqOL.__BG0,0,0,0_FMpng_AC_SY220_.jpg"
+                    )
+            ));
+
         };
     }
 }
