@@ -19,7 +19,8 @@ import java.util.stream.IntStream;
         DiscoverRepository.class,
         SellersRepository.class,
         UserRepository.class,
-        Products.class
+        Products.class,
+        DealsRepository.class
 })
 @Configuration
 public class MongoDBConfig {
@@ -31,7 +32,8 @@ public class MongoDBConfig {
                                         DiscoverRepository discoverRepository,
                                         SellersRepository sellersRepository,
                                         CareProductsRepository careProductsRepository,
-                                        ProductsRepository productsRepository
+                                        ProductsRepository productsRepository,
+                                        DealsRepository dealsRepository
     ) {
 
         return strings -> {
@@ -288,6 +290,8 @@ public class MongoDBConfig {
                     )
             );
 
+
+
             productsRepository.save(
                     new Products(
                             "Best sellers in Kindle eBooks",
@@ -310,6 +314,17 @@ public class MongoDBConfig {
                                     "https://images-na.ssl-images-amazon.com/images/I/81Zn%2B4DZqOL.__BG0,0,0,0_FMpng_AC_SY220_.jpg"
                     )
             ));
+
+
+            dealsRepository.save(
+                    new Deal(1,
+                            "https://images-na.ssl-images-amazon.com/images/I/41YeMx-ci3L._AC_SY600_.jpg",
+                            "Save 20% of More on Orgain New Year, New You Essentials",
+                            9.05,
+                            27.40,
+                            1,
+                            true
+                    ));
 
         };
     }
