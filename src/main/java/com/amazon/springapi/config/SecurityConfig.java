@@ -51,9 +51,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 antMatchers(
                         "/api/register",
                         "/api/get-username",
+                        "/api/get-email",
                         "/api/authenticate",
                         "/api/public/**",
-                        "/refresh",
+                        "/api/refresh",
                         "/swagger-ui.html**").permitAll().
                 anyRequest().authenticated().and().
                 exceptionHandling().and().sessionManagement()
