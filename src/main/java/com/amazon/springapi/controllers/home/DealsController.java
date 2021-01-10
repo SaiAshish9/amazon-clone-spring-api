@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/public/")
+@RequestMapping("/api/public/home/")
 public class DealsController {
 
     @Autowired
@@ -19,7 +19,7 @@ public class DealsController {
         return ResponseEntity.ok(dealsRepository.findAll());
     }
 
-    @GetMapping("best_deal")
+    @GetMapping("best-deal")
     public ResponseEntity<?> getBestDeal(){
         return ResponseEntity.ok(dealsRepository.findByBestIsTrue());
     }

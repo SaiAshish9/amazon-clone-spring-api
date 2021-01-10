@@ -291,7 +291,6 @@ public class MongoDBConfig {
             );
 
 
-
             productsRepository.save(
                     new Products(
                             "Best sellers in Kindle eBooks",
@@ -312,9 +311,28 @@ public class MongoDBConfig {
                                     "https://images-na.ssl-images-amazon.com/images/I/91giQulzYFL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
                                     "https://images-na.ssl-images-amazon.com/images/I/81F4NU78sbL.__BG0,0,0,0_FMpng_AC_SY220_.jpg",
                                     "https://images-na.ssl-images-amazon.com/images/I/81Zn%2B4DZqOL.__BG0,0,0,0_FMpng_AC_SY220_.jpg"
-                    )
-            ));
+                            )
+                    ));
 
+            productsRepository.save(
+                    new Products(
+                            "Popular Gifts in Camera",
+                            Arrays.asList(
+                                    "https://images-na.ssl-images-amazon.com/images/I/71DbaudYCGL._AC_SY600_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/810i8W-qRHL._AC_SY400_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/51PwIu01qsL._AC_SY300_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/41a+m1buL+L._AC_SY600_.jpg"
+                            )));
+
+            productsRepository.save(
+                    new Products(
+                            "Girls’ everyday essentials",
+                            Arrays.asList(
+                                    "https://images-na.ssl-images-amazon.com/images/I/91cQnfBtLfL._AC_SY600_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/81w8cVInHfL._AC_SY300_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/81kgv4yE0TL._AC_SY400_.jpg",
+                                    "https://images-na.ssl-images-amazon.com/images/I/812jmL189CL._AC_SY600_.jpg"
+                            )));
 
             dealsRepository.save(
                     new Deal(1,
